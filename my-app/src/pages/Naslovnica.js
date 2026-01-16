@@ -1,77 +1,10 @@
-import React from 'react'
-import '../App.css';
 
-const Home = () => {
+
+
+const Naslovnica = () => {
   return (
 
     <>
-  
-<nav className="navbar navbar-expand-lg navbar-light bg-ligh">
-      <div className="container">
-        <a className="navbar-brand" href="/index.html">
-          <img src="img/vector.svg" alt="logo" height="12"/> 
-        </a>
-      
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="true" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span> 
-        </button>
-
-        <div className="navbar-collapse collapse show" id="mainNavbar">
-          
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            
-         <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="ddElectric" role="button" data-bs-toggle="dropdown" aria-expanded="false">ELECTRIC</a>
-              <ul className="dropdown-menu" aria-labelledby="ddElectric">
-                <li><a className="dropdown-item text-end" href="#">Electric Ace</a></li>
-                <li><a className="dropdown-item text-end" href="#">Electric Ivy</a></li>
-              </ul>
-            </li>
-          <li className="nav-item dropdown text-end">
-              <a className="nav-link dropdown-toggle" href="#" id="ddElectric" role="button" data-bs-toggle="dropdown" aria-expanded="false">CITY</a>
-              <ul className="dropdown-menu" aria-labelledby="ddElectric">
-                <li><a className="dropdown-item text-end" href="#">Caféracer</a></li>
-                <li><a className="dropdown-item text-end" href="#">Robyn</a></li>
-              </ul>
-            </li>
-           <li className="nav-item dropdown text-end">
-              <a className="nav-link dropdown-toggle" href="#" id="ddElectric" role="button" data-bs-toggle="dropdown" aria-expanded="false">KIDS</a>
-              <ul className="dropdown-menu" aria-labelledby="ddElectric">
-                <li><a className="dropdown-item text-end" href="#">El Bear</a></li>
-                <li><a className="dropdown-item text-end" href="#">El Robin</a></li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-end" href="#">ACCESSORIES</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-end" href="#">STORES</a>
-            </li>
-           <li className="nav-item dropdown text-end">
-              <a className="nav-link dropdown-toggle" href="#" id="ddElectric" role="button" data-bs-toggle="dropdown" aria-expanded="false">LEASING</a>
-              <ul className="dropdown-menu" aria-labelledby="ddElectric">
-                <li><a className="dropdown-item text-end" href="#">Private</a></li>
-                <li><a className="dropdown-item text-end" href="#">Business</a></li>
-              </ul>
-            </li>
-          </ul>
-
-    <ul className="navbar-nav ms-auto align-items-center">
-      <li className="nav-item">
-        <a className="nav-link" href="/signin" title="Sign in">
-            <img src="img/button.svg" alt="Sign in" className="icon-sm"/>
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="/cart" title="Cart">
-            <img src="img/svg.svg" alt="Cart" className="icon-lg"/>
-        </a>
-      </li>
-    </ul>
-          
-        </div>
-      </div>
-    </nav>
   
 
     <section className="hero d-flex align-items-center text-white mb-5 text-center">
@@ -80,8 +13,6 @@ const Home = () => {
             <h1>Bike lease plan for employees.</h1>
         </div>
     </section>
-
-
 
 <section className="home-1 py-5">
   <div className="container">
@@ -205,56 +136,6 @@ const Home = () => {
         </div>
       </div>
     </section>
-  
-    <footer>
-<div className="container">
-  <div className="row">
-    <div className="col-md-8">
-      <div className="row">
-        <div className="col-md-3">
-          <h4>Explorer</h4>
-          <ul>
-            <li> <a href="#">Electric Bikes</a></li>
-            <li> <a href="#">City Bikes</a></li>
-            <li> <a href="#">Kids bikes</a></li>
-            <li> <a href="#">Accessories</a></li>
-            <li> <a href="#">Outlet</a></li>
-            <li> <a href="#">Bussines</a></li>
-            <li> <a href="#">Insurance Electric</a></li>
-            <li> <a href="#">Size guide</a></li>
-          </ul>
-        </div>
-        <div className="col-md-3">
-          <h4>About</h4>
-          <ul>
-            <li> <a href="#">About us</a></li>
-            <li> <a href="#">Journal</a></li>
-            <li> <a href="#">Reviews</a></li>
-            <li> <a href="#">Press</a></li>
-            <li> <a href="#">Jobs</a></li>
-          </ul>
-        </div>
-                <div className="col-md-3">
-          <h4>Help</h4>
-          <ul>
-            <li> <a href="#">Contact</a></li>
-            <li> <a href="#">FAQ</a></li>
-            <li> <a href="#">Delivery</a></li>
-            <li> <a href="#">Assembly & manuals</a></li>
-            <li> <a href="#">Payment options</a></li>
-            <li> <a href="#">Privacy policy</a></li>
-            <li> <a href="#">Terms and conditions</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-        <div className="col-md-4">
-          <h4>Join the ride.</h4>
-          <p>Sign up for our newsletter</p>
-        </div> 
-  </div>
-</div>
-    </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
@@ -262,7 +143,7 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Naslovnica
 
 
 
