@@ -39,11 +39,14 @@ const Nav = () => {
             <li className="nav-item">
               <a className="nav-link text-end" href="sudionici">Sudionici</a>
             </li>
+               <li className="nav-item">
+              <a className="nav-link text-end" href="tecaj">Tečaj</a>
+            </li>
         
 </ul>
     <ul className="navbar-nav ms-auto align-items-center">
       <li className="nav-item">
-        <a className="nav-link" href="/signin" title="Sign in">
+        <a className="nav-link" href="/profil" title="Profil korisnika">
             <img src="img/button.svg" alt="Sign in" className="icon-sm"/>
         </a>
       </li>

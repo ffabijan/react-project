@@ -1,0 +1,15 @@
+
+{
+        "ime" : "Filip",
+        "prezime" : "Fabijan",
+        "godine" : 25,
+        "grad" : "Zagreb",
+        "vozacka" : true,
+        "vjestine" : ["HTML", "CSS", "JavaScript", "React"],
+        "adresa" : {
+            "ulica" : "Ilica 123",
+            "grad" : "Zagreb",
+            "postanskiBroj" : 10000
+        }
+   
+    }
