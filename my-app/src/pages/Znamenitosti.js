@@ -5,58 +5,55 @@ import "./Blog.css";
 import ReactPaginate from "react-paginate";
 import ScrollToTop from "../components/ScrollToTop";
 import BlogPost from "../components/BlogPost";
+
 import SwiperComponent from "../components/SwiperComponent";
 
-const BASE_URL = process.env.REACT_APP_API_URL
 
-const Blog = () => {
+
+const Znamenitosti = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-
   const [authors, setAuthors] = useState([]);
   const [selectedAuthor, setSelectedAuthor] = useState("");
-
   const [currentPage, setCurrentPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
 
-  const per_page = 6
  
+
+ 
+ // Dohvaćene kategorije i autori
   useEffect(() => {
-
-    fetch(
-      `${BASE_URL}v2/categories`)
+    
+    fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/znamenitosti`)
       .then((response) => response.json())
-      .then((data) => {
-        setCategories(data);
-      });
+      .then((data) => { 
+         setCategories(data);
+        console.log(data);
 
-    fetch(
-      `${BASE_URL}v2/users?per_page=20`)
+      });
+    fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/users?per_page=20`)
       .then((response) => response.json())
       .then((data) => {
         setAuthors(data);
-      } 
-    )
+        console.log(data);    
+      });
+ }, []);
 
-    }, []);
-
-  
-
+ // Sve kategorije i autori dohvaćeni
   useEffect(() => {
     setLoading(true);
 
     const per_page = 6
 
-    let url = `${BASE_URL}v2/posts?_embed&per_page=${per_page}&page=${currentPage + 1}`; 
+    let url = `https://front2.edukacija.online/backend/wp-json/wp/v2/znamenitosti?_embed&per_page=6&page=${per_page}&page=${currentPage + 1}`;
     
     if(selectedCategory) url += "&categories=" + selectedCategory;
     if(selectedAuthor) url += "&author=" + selectedAuthor;
 
 
-    fetch(url)
+   fetch(url)
       .then((response) => {
         const totalPages = response.headers.get("X-WP-TotalPages");
         setPageCount(Number(totalPages))
@@ -68,6 +65,7 @@ const Blog = () => {
       .finally(() => setLoading(false));
   }, [selectedCategory, selectedAuthor, currentPage]);
 
+    console.log(pageCount); 
 
   return (
     <>
@@ -75,9 +73,7 @@ const Blog = () => {
       <div className="blog-page">
         <div className="container">
           <h1>Blog</h1>
-
-          <SwiperComponent posts={posts} />
-
+            <SwiperComponent posts={posts} />
           <div className="row mb-4 mt-5">
               <div className="col-12 d-flex gap-1 mb-2">
                   {
@@ -90,7 +86,6 @@ const Blog = () => {
                       </button>
                     ))}
               </div>
-
               <select className="form-select" onChange={
                 (e) => setSelectedAuthor(e.target.value)
               }>
@@ -101,9 +96,7 @@ const Blog = () => {
                   ))
                 }
               </select>
-
           </div>
-
           <div className="row">
             {posts.map((post) => {
               return (
@@ -111,7 +104,6 @@ const Blog = () => {
               );
             })}
           </div>
-    
           <ReactPaginate 
             previousLabel={"prev"}
             nextLabel={"next"}
@@ -138,5 +130,4 @@ const Blog = () => {
     </>
   );
 };
-
-export default Blog;
+export default Znamenitosti;

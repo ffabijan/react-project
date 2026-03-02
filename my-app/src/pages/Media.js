@@ -3,10 +3,12 @@ import {useState,useEffect} from 'react';
 const Media = () => {
       const [media, setMedia] = useState(null);
 ;
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;  
     
       useEffect(
         () => {
-          fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/posts/613?_embed`)
+          fetch(`${BASE_URL}/wp-json/wp/v2/posts/613?_embed`)
           .then(response => response.json())
           .then(
             data => {

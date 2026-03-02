@@ -1,4 +1,5 @@
 import React from 'react'
+import ScrollToTop from './ScrollToTop'
 
 const Footer = () => {
   return (
@@ -48,9 +49,10 @@ const Footer = () => {
         <div className="col-md-4">
           <h4>Join the ride.</h4>
           <p>Sign up for our newsletter</p>
-        </div> 
-  </div>
-</div>
+             </div> 
+          </div>
+          <button className="btn btn-danger" onClick={ScrollToTop}>Top</button>
+      </div>
     </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

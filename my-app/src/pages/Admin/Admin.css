@@ -1,0 +1,27 @@
+.naslovna{
+    content: "";
+    width: 100%;
+    height: 282px;
+    background-color: var(--naslovna-color);
+
+}
+
+.profile_pic{
+
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: -30px;
+    left: 30px;
+    border: 6px solid var(--white);
+}
+
+.admin-panel{
+    background-color: rgb(255, 255, 255);
+}
+
+.profile-menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

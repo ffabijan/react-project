@@ -1,0 +1,140 @@
+
+
+.slide-image {
+  width: 100%;
+    height: 780px;
+  object-fit: cover;
+}
+
+
+
+.slide-text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 2; /* da bude iznad slike */
+  padding: 0 40px;
+
+  font-family: 'Monument Grotesk', sans-serif;
+  color: white; 
+
+}
+
+/* SLJEDEĆI NA REDU JE RESPONSIVE KOA NA SLIDER GALLERY */
+
+.slide-text h2 {
+  margin: 0;
+}
+
+/* Lijevi */
+.prev-text {
+  text-align: left;
+  flex: 1;
+   font-size: 75px;
+  font-weight: bold;
+  opacity: 1;
+
+  overflow: hidden; /* KLJUČNO */
+
+   color: transparent;               /* unutrašnjost prazna */
+  -webkit-text-stroke: 2px white;   /* debljina i boja obruba */
+
+}
+
+.active-text {
+  font-size: 75px;
+  font-weight: bold;
+  opacity: 1;
+  transform: translateY(50px);
+  transition: all s ease-in-out;
+}
+
+
+/* Desni */
+.next-text {
+  text-align: right;
+  flex: 1;
+   font-size: 75px;
+  font-weight: bold;
+  opacity: 1;
+
+  overflow: hidden; /* KLJUČNO */
+
+   color: transparent;               /* unutrašnjost prazna */
+  -webkit-text-stroke: 2px white;   /* debljina i boja obruba */
+  
+}
+
+
+
+.swiper-slide-active .active-text {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.swiper-slide-prev .active-text,
+.swiper-slide-next .active-text {
+  opacity: 0;
+  transform: translateX(20px);
+
+}
+
+
+
+  @font-face {
+    font-family: 'Monument Grotesk';
+    src: url(https://assets.website-files.com/6384f09…/6385f53…_ABCMonumentGrotesk-Medium.otf) format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+.swiper-container-custom {
+  position:   relative;
+  width: 100%;
+}
+
+/* strelice u donjem desnom kutu */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 35px;
+  height: 35px;
+  color: #fff; /* boja strelica */
+  position: absolute;
+  bottom: 10px; /* udaljenost od dna */
+  right: 10px;  /* desni kut */
+  z-index: 10;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* lijeva strelica malo lijevo od desne */
+.swiper-button-prev {
+  right: 55px; /* pomak lijevo od desnog kuta */
+}
+
+/* ikone strelica */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+
+  .slide-text h2 {
+    font-size: 60px;
+  }
+
+}

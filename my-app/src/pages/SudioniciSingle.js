@@ -1,29 +1,29 @@
-import "./Blog.css";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Loader from "../components/Loader";
-import Author from "../components/Author";
+import {useState,useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+import './Blog.css';
+import post from '../components/zadaci/data/blogsingle.json';    
 
-const BlogSingle = () => {
-  const { slug } = useParams();
-  const [post, setPost] = useState(null);
 
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-  useEffect(() => {
-    fetch(
-      `${BASE_URL}v2/post?slug=${slug}&_embed`,
-    )
-      .then((response) => response.json())
-      .then((data) => setPost(data[0]));
-  }, [slug]);
 
-  if (!post) {
-    return <Loader />;
-  }
+const SudioniciSingle = () => {
+      const { slug } = useParams();
+      const [post, setPost] = useState(null);
+;
+    
+      useEffect(
+        () => {
+          fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/sudionici?slug=${slug}&_embed`)
+          .then(response => response.json())
+          .then(data => setPost(data[0]))
+        }, [slug]);
+    
 
-  return (
-    <div className="blog-single">
+ if(!post)  return <p>Učitavanje...</p>
+return (
+    
+
+  <div className="blog-single">
       <div
         class="masthead"
         style={{
@@ -40,7 +40,10 @@ const BlogSingle = () => {
               <div class="post-heading">
                 <h1>{post.title.rendered}</h1>
                 <h2 class="subheading"></h2>
-                <Author post={post}/>
+                <span class="meta">
+                  
+                  {new Date(post.date).toLocaleDateString("hr-HR")}
+                </span>
               </div>
             </div>
           </div>
@@ -52,8 +55,7 @@ const BlogSingle = () => {
           <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
               <div
-                dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-              ></div>
+                dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
             </div>
           </div>
         </div>
@@ -62,4 +64,4 @@ const BlogSingle = () => {
   );
 };
 
-export default BlogSingle;
+export default SudioniciSingle;

@@ -1,11 +1,19 @@
-.blog.post img{
-    aspect-ratio: 4 / 3;
+.blog-post img {
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     width: 100%;
 }
 
-.blog.post h2{
+.blog-post h2{
     font-size: 2rem;
+}
+
+.blog-page {
+    min-height: calc(100vh - 56px);
+}
+
+.blog-single {
+     min-height: calc(100vh - 56px);
 }
 
 @media(min-width: 440px){
