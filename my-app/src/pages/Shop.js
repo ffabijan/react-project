@@ -1,4 +1,4 @@
-import { useState, useEffect, exsitingProduct } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -28,18 +28,23 @@ const Shop = () => {
   }, []);
 
   const addToCart = (product) => {
-    console.log("Dodano u košaricu:", product);
-    // kasnije možeš dodati logiku za cart
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];    
+  console.log("Dodano u košaricu:", product);
 
-    if (exsitingProduct) {
-        exsitingProduct.quantity = (exsitingProduct.quantity || 1) + 1;
-    } else {
-        product.quantity = 1;
-        cart.push(product);
-    }
-    localStorage.setItem("cart", JSON.stringify(cart));
-  };
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existingProduct = cart.find(
+    (item) => item.id === product.id
+  );
+
+  if (existingProduct) {
+    existingProduct.quantity =
+      (existingProduct.quantity || 1) + 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
 
   if (!products) return <p>Učitavanje...</p>;
 

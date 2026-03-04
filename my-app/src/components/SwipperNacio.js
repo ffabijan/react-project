@@ -14,10 +14,12 @@ import "swiper/css/effect-fade";
 export default function SwiperNacio() {
   const [posts, setPosts] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const prevPost = posts[(activeIndex - 1 + posts.length) % posts.length];
+    const nextPost = posts[(activeIndex + 1) % posts.length];
 
   useEffect(() => {
     fetch(
-      "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=212&_embed"
+      "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=224&_embed"
     )
       .then((res) => res.json())
       .then((data) => setPosts(data))
@@ -51,6 +53,9 @@ export default function SwiperNacio() {
               // prethodni i sljedeci postovi za prikaz sa strane
           const prevPost = posts[(activeIndex - 1 + posts.length) % posts.length];
           const nextPost = posts[(activeIndex + 1) % posts.length];
+
+          if (!image) return null; // preskoči ako nema slike
+      
            
 
           return (
@@ -65,17 +70,28 @@ export default function SwiperNacio() {
                 />
                 
                 <div className="slider-wrapper">
+                   <div className={`slide-text ${posts.length === 1 ? "single-slide" : ""}`}>
+                          {/* Bočni tekstovi prikazujemo samo ako ima više objava */}
+                          {posts.length > 1 && prevPost && (
+                            <h2 className="prev-text">{prevPost.title.rendered}</h2>
+                          )}
 
                     <div className="slide-text">
 
                       <h2 className="prev-text">{prevPost?.title.rendered}</h2>
-                      <h2
 
+                      
+                      <h2
                         className="active-text"
                         dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                       />
-                      
+
+                      <a href={post.link} className="read-more-btn">
+                          Pogledaj ponudu
+                        </a>
+
                       <h2 className="next-text">{nextPost?.title.rendered}</h2>
+                    </div>
                     </div>
                   </div>
               </div>

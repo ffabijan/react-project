@@ -6,6 +6,43 @@
   object-fit: cover;
 }
 
+.read-more-btn {
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+ 
+  border-radius: 50px;
+
+  transform: translateX(-50%);
+  margin-top: 50px;
+  border-radius: 150px;
+  padding: 25px 50px;
+  font-weight: bold; 
+  font-size: 18px;
+  background-color: transparent;
+  text-decoration: none;
+  border: 1px solid white;
+  color: white;
+  border-radius: 6px;
+
+  backdrop-filter: blur(8px);
+
+  font-family: "Questrial", sans-serif;
+  transition: all 0.3s ease;
+
+
+
+}
+
+.read-more-btn:hover {
+  background-color: var(--primary-light);
+  color: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%) translateY(-5px);
+
+}
+
 
 
 .slide-text {
@@ -133,8 +170,28 @@
 
 @media (max-width: 768px) {
 
-  .slide-text h2 {
-    font-size: 60px;
+  .slide-text {
+    display: flex;
+    flex-direction: column;  /* elementi jedan ispod drugog */
+    align-items: center;     /* centriranje horizontalno */
+    text-align: center;      /* centriranje teksta unutar h2 */
   }
 
+  .slide-text h2 {
+    font-size: 40px;         /* manja veličina za mobitele */
+    margin: 10px 0;          /* razmak između naslova i gumba */
+  }
+
+  .prev-text,
+  .next-text {
+    display: none;            /* sakrij bočne naslove */
+  }
+
+  .active-text {
+    font-size: 40px;
+  }
+
+  .read-more-btn {
+    margin-top: 20px;         /* gumb ostaje ispod centralnog teksta */
+  }
 }

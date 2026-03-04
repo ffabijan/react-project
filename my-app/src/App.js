@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 
+
+
 import './Gutenberg.css'; 
 import './App.css';
 
@@ -39,7 +41,8 @@ import Cart from './pages/Cart.js';
 
 function App() {
   return (
-    <BrowserRouter>
+
+    <BrowserRouter basename={'/ffabijan'}>
     <Nav />
     <Routes>
       <Route path='/' element={<Naslovnica />} />
